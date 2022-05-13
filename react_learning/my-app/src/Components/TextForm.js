@@ -22,7 +22,7 @@ export default function TextForm(props) {
 
   
    
-    const [text, setText] = useState('Enter Text Here');
+    const [text, setText] = useState('');
   //  setText('Enter Text'); - right way to change the value
 
 
@@ -35,6 +35,15 @@ export default function TextForm(props) {
                 <button type="submit" className="btn btn-primary mt-3 " onClick={handleUpCase}>Convert to Uppercase</button>
                 <button type="submit" className="btn btn-primary mt-3 mx-3" onClick={handleLowercase}>Convert to Lowercase</button>
              </div>
+             <div className="summery">
+                 <h4>Your text summery</h4>
+                 <p><strong>{text.split(" ").length}</strong> words and <strong>{text.length}</strong> characters</p>
+                 <p>You can read it in <strong>{text.split(" ").length * 0.008}</strong> Minutes</p>
+
+                 <h5>Preview</h5>
+                 <p>{text}</p>
+             </div>
+
         </div>
     </div>
   )
