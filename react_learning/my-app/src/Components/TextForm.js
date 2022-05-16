@@ -3,7 +3,7 @@ import React,{useState} from 'react'
 
 export default function TextForm(props) {
 
-    const handleUpCase = () => {
+      const handleUpCase = () => {
         let newText = text.toUpperCase();
         setText(newText)
       }
@@ -12,12 +12,16 @@ export default function TextForm(props) {
        let newText1 = text.toLowerCase();
        setText(newText1)
       }
+
+
       const handleReverseText = () => {
         let newText1 = text.split("").reverse().join("");
         setText(newText1)
-       }
-       const handledownloadText = () =>
-       {
+      }
+
+
+      const handledownloadText = () =>
+      {
         const element = document.createElement("a");
         const file = new Blob([text], {
           type: "text/plain"
@@ -26,13 +30,15 @@ export default function TextForm(props) {
         element.download = "myFile.txt";
         document.body.appendChild(element);
         element.click();
-       }
-       const handleClearText = () => {
+      }
+
+      const handleClearText = () => {
         let newText1 = "";
         setText(newText1)
-       }
+      }
+
       const handleChange= (event) => {
-          setText(event.target.value)
+            setText(event.target.value)
       }
 
 
