@@ -12,10 +12,28 @@ export default function TextForm(props) {
        let newText1 = text.toLowerCase();
        setText(newText1)
       }
-
-    const handleChange= (event) => {
-        setText(event.target.value)
-    }
+      const handleReverseText = () => {
+        let newText1 = text.split("").reverse().join("");
+        setText(newText1)
+       }
+       const handledownloadText = () =>
+       {
+        const element = document.createElement("a");
+        const file = new Blob([text], {
+          type: "text/plain"
+        });
+        element.href = URL.createObjectURL(file);
+        element.download = "myFile.txt";
+        document.body.appendChild(element);
+        element.click();
+       }
+       const handleClearText = () => {
+        let newText1 = "";
+        setText(newText1)
+       }
+      const handleChange= (event) => {
+          setText(event.target.value)
+      }
 
 
 
@@ -34,6 +52,10 @@ export default function TextForm(props) {
                 <textarea className="form-control" id="exampleFormControlTextarea1"  rows="8" value={text}  onChange={handleChange} ></textarea>
                 <button type="submit" className="btn btn-primary mt-3 " onClick={handleUpCase}>Convert to Uppercase</button>
                 <button type="submit" className="btn btn-primary mt-3 mx-3" onClick={handleLowercase}>Convert to Lowercase</button>
+                <button type="submit" className="btn btn-primary mt-3 ml-3" onClick={handleReverseText}>Reverce</button>
+                <button type="submit" className="btn btn-primary mt-3 mx-3" onClick={handleClearText}>Clear</button>
+                <button type="submit" className="btn btn-primary mt-3 ml-3" onClick={handledownloadText}>Download</button>
+
              </div>
              <div className="summery">
                  <h4>Your text summery</h4>
